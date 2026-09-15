@@ -1,0 +1,150 @@
+  static void Main(string[] args)
+  {
+      //เรียกใช้เมธอด ==>  ชื่อเมธอดที่ต้องการเรียกใช้();
+      /*  SayHi();
+        // SayHello("test ");
+        Console.Write("your name : ");
+        string name = Console.ReadLine();
+        SayHello(name);
+        Say("somsri", 20);
+        Console.WriteLine("\nwhat is your name?");
+        string n = Console.ReadLine();
+        Console.WriteLine("\nwhat is your age?");
+        int age = int.Parse(Console.ReadLine());
+        Say(n, age);
+      ComputeGrade(85);
+      ComputeGrade(70);
+      ComputeGrade(62);
+      ComputeGrade(51);
+      ComputeGrade(47);
+      Console.Write("\n\nattention : ");
+      int att = int.Parse(Console.ReadLine());
+      Console.Write("work : ");
+      int work = int.Parse(Console.ReadLine());
+      Console.Write("midterm : ");
+      int mid = int.Parse(Console.ReadLine());
+      Console.Write("final : ");
+      int final = int.Parse(Console.ReadLine());
+      int t = att+work+mid+final; 
+      ComputeGrade(t);
+      Console.WriteLine("\noutput2 :");
+      Grade(att, work, mid, final);
+
+      Console.WriteLine("\n\nhow many star do you want?");
+      int star = int.Parse(Console.ReadLine());
+      //เรียกใช้เมธอด PrintStar
+      PrintStar(star);*/
+
+      
+      Console.Write("total score : ");
+      int total = int.Parse(Console.ReadLine());//รับค่าคะแนนจากผู้ใช้
+      //เรียกใช้เมธอดแบบคืนค่า
+      string grade = printGrade(total);
+      Console.WriteLine("\t"+ grade);
+      Console.WriteLine("\n\t output : type 2 : " + printGrade(total));
+      //การเรียกใช้เมธอดสูตรคุณ
+      Console.WriteLine("\n\nfirst multiply? ");
+      int f = int.Parse(Console.ReadLine());
+      Console.WriteLine("last multiply? ");
+      int l = int.Parse(Console.ReadLine());
+      Console.WriteLine(Multiply(f, l));
+      Console.WriteLine("\nend program");
+      Console.ReadKey();
+  }
+  //สร้างเมธอดแบบไม่คืนค่าและไม่มีพารามิเตอร์
+  static void SayHi()
+  {
+      Console.WriteLine("Hello world");
+      Console.WriteLine("you 're welcome");
+  }
+  //สร้างเมธอดแบบไม่คืนค่าและมีพารามิเตอร์ จำนวน 1 ตัว
+  static void SayHello(string name)
+  {
+      Console.WriteLine($"Hello {name}");
+      Console.WriteLine("Hello " + name);
+      Console.WriteLine("Hello {0}" ,name);
+  }
+  //สร้างเมธอดแบบไม่คืนค่าและมีพารามิเตอร์ จำนวน 2 ตัว
+  static void Say(string name, int y)
+  {
+      Console.WriteLine("Hi " + name + "your age = " + y);
+  }
+  //สร้างเมธอดแบบไม่คืนค่าและมีพารามิเตอร์ จำนวน 1 ตัว สำหรับคำนวณเกรด
+  static void ComputeGrade(int score)
+  {
+      if (score >= 80)
+          Console.WriteLine("score = " + score + " grade = A");
+      else if (score >= 70)
+          Console.WriteLine("score = " + score + " grade = B");
+      else if (score >= 60)
+          Console.WriteLine("score = " + score + " grade = C");
+      else if (score >= 50)
+          Console.WriteLine("score = " + score + " grade = D");
+      else
+          Console.WriteLine("score = " + score + " grade = F");
+
+  }
+  //สร้างเมธอดแบบไม่คืนค่าและมีพารามิเตอร์ จำนวน 4 ตัว สำหรับคำนวณเกรด
+  static void Grade(int attention, int work, int midterm, int final)
+  {
+      int score = attention + work + midterm + final;
+      if (score >= 80)
+          Console.WriteLine("score = " + score + " grade = A");
+      else if (score >= 70)
+          Console.WriteLine("score = " + score + " grade = B");
+      else if (score >= 60)
+          Console.WriteLine("score = " + score + " grade = C");
+      else if (score >= 50)
+          Console.WriteLine("score = " + score + " grade = D");
+      else
+          Console.WriteLine("score = " + score + " grade = F");
+
+  }
+  static void PrintStar(int n)
+  {
+      for (int i = 1; i <= n; i++)
+      {
+          Console.Write("*");
+      }
+  }
+  //สร้างเมธอดแบบคืนค่าและมีพารามิเตอร์ จำนวน 1 ตัว สำหรับคำนวณเกรด
+  static string printGrade(int score)
+  {
+      string grade = "";
+      if (score >= 80)
+          grade = "score = " + score + " grade = A";
+      else if (score >= 70)
+          grade = "score = " + score + " grade = B";
+      else if (score >= 60)
+          grade = "score = " + score + " grade = C";
+      else if (score >= 50)
+          grade = "score = " + score + " grade = D";
+      else
+          grade = "score = " + score + " grade = F";
+      return grade;
+  }
+  //เมธอดแสดงสูตรคูณ แบบคืนค่า ที่มีพารามิเตอร์ จำนวน 2 ตัว
+  static string Multiply(int first,int last)
+  {
+      string result = "";
+      for(int i = first;i<= last ;i++)
+      {
+          result += "\tMultiply " + i + "\n\t" + PrintStar2(20);
+          
+          for (int j = 1;j <= 12 ;j++ )
+          {
+              result += "\n\t" + i + " x " + j + " = " + i * j;
+          }
+          result += "\n";
+      }
+      return result;
+  }
+  static string PrintStar2(int n)
+  {
+      string star = "";
+      for (int i = 1; i <= n; i++)
+      {
+          star += "*";
+      }
+      return star;
+  }
